@@ -1,0 +1,36 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham   
+ * Purpose: Convert Celsius to Fahrenheit
+ * Created on July 5, 2015, 6:06 PM
+ */
+//header libraries
+#include <iostream>
+using namespace std;
+
+//Global Constants
+
+//Function Prototypes
+
+//User Libraries
+
+
+//Execution begins here
+int main(int argc, char** argv) {
+    //Declare Variables
+    short int cel;
+    float far;
+    
+    //Initialize the Variables
+    cout<<"Please enter the temperature in Celsius\n";
+    cin>>cel;
+    
+    far = ((9.0/5.0)*cel)+32; //Formula for conversion from Celsius to Far. 
+    
+    //Output the Results
+    cout<<"Your temperature in Fahrenheit is "<<far<<" degrees";
+    
+
+    return 0;
+}
+
