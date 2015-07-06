@@ -1,0 +1,50 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham
+ * Purpose: To determine the average rainfall
+ * over a three month period
+ * Created on July 5, 2015, 3:39 PM
+ */
+
+
+//Libraries
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+//Global Constants
+
+//User Libraries
+
+//Function prototypes
+
+
+
+//Execution begins here
+int main(int argc, char** argv) {
+    //Declare variables
+    string mnth1; string mnth2; string mnth3;
+    float rFall1,rFall2, rFall3;
+    float avgR;
+    
+    //Initialize variables
+    cout<<"Please enter the month followed by the \n";
+    cout<<"total amount of rain (in inches) that fell that month\n";
+        //User input for month and rainfall
+             cin>>mnth1; cin>>rFall1;
+             cin>>mnth2; cin>>rFall2;
+             cin>>mnth3; cin>>rFall3;
+            
+             //formula to calculate avg. rainfall
+             avgR = (rFall1+rFall2+rFall3)/3.0;
+             
+    //Output the average rainfall over the three month period 
+             cout<<"The Average rainfall for "<<mnth1<<", "<<mnth2<<", ";
+             cout<<"and "<<mnth3<<" was "<<fixed<<showpoint<<setprecision(2);
+             cout<<avgR<<" inches";
+    
+    
+    return 0;
+}
+
