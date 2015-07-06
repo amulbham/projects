@@ -1,0 +1,50 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham 
+ * Purpose: Calculate the average value of
+ * user inputed test scores
+ * Created on July 5, 2015, 3:08 PM
+ */ 
+
+//User Libraries
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+
+//Function Prototypes
+
+//Global libraries 
+
+
+
+//Execution begins here 
+int main(int argc, char** argv) {
+    
+    //Declare Variables
+    float one;float two;float three; float four; float five;
+    float avg;//avg. test score
+    
+    //Initialize the Variables
+    cout<<"Please enter your 5 test scores\n";
+            cin>>one;
+            cin>>two;
+            cin>>three;
+            cin>>four;
+            cin>>five;
+    
+    avg = (one+two+three+four+five)/5.0; //formula to calc. avg. 
+    
+    //Output the average test score
+    cout<<"Your average test score is\n";
+    cout<<fixed<<showpoint<<setprecision(1)<<avg<<endl;
+   
+    if (avg < 75){
+        cout<<"Looks like you need to study a little more\n";
+    }else{
+        cout<<"Looks like you are doing alright keep up the good work";
+    }
+
+    return 0;
+}
