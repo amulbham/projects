@@ -1,0 +1,102 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham
+ * Purpose: To display the first, second,
+ * and third place finish of a race between three runners
+ * Created on July 5, 2015, 10:19 PM
+ */
+
+#include <iostream>
+
+using namespace std;
+
+//Global Constants
+
+//User Libraries
+
+//Function Prototypes
+
+//Execution Begins here !
+int main(int argc, char** argv) {
+    //Declare Variables
+       int time1;int time2;int time3;
+ 
+        //The names of the 3 runners
+        string run1; string run2; string run3;
+        
+    //Initialize variables
+        cout<<"Enter the names of the three runners \n";
+        cin>>run1;
+        cin>>run2;
+        cin>>run3;
+        
+    //obtain the times it took to finish the race
+        do{
+        cout<<"Enter the time it took "<<run1;
+        cout<<" to finish the race in minutes\n";
+        cin>>time1;
+        cout<<"Enter the time it took "<<run2;
+        cout<<" to finish the race in minutes\n";
+        cin>>time2;
+        cout<<"Enter the time it took "<<run3;
+        cout<<" to finish the race in minutes\n";
+        cin>>time3;
+        //Account for a mistype of a negative value
+        if (time1<0 || time2<0 || time3<0){
+            cout<<"We accept positive time only! \n";
+            cout<<"Enter the times again with positive values!\n\n";
+        } 
+            
+        //Loop back the input for time if a negative value is entered
+        }while(time1<0 || time2<0 || time3<0);
+            
+    //provide different output based on the results to account for 
+        //all 3 finishes
+        
+        //If runner 1 is the first place finisher
+        if (time1<time2 && time1<time3){
+            cout<<"The 1st place runner was "<<run1;
+            cout<<" with a time of "<<time1<<" minutes\n";
+            if (time2<time3){
+                cout<<"The 2nd place runner was "<<run2;
+                cout<<" with a time of "<<time2<<" minutes\n";
+                cout<<"The 3rd place runner was "<<run3;
+                cout<<" with a time of "<<time3<<" minutes\n";
+            }else if (time3<time2){
+                cout<<"The 2nd place runner was "<<run3;
+                cout<<" with a time of "<<time3<<" minutes\n";
+                cout<<"The 3rd place runner was "<<run2;
+                cout<<" with a time of "<<time2<<" minutes\n";}   
+        //If runner 2 is the first place finisher    
+        }else if(time2<time1 && time2<time3){
+            cout<<"The 1st place runner was "<<run2;
+            cout<<" with a time of "<<time2<<" minutes\n";
+            if (time1<time3){
+                cout<<"The 2nd place runner was "<<run1;
+                cout<<" with a time of "<<time1<<" minutes\n";
+                cout<<"The 3rd place runner was "<<run3;
+                cout<<" with a time of "<<time3<<" minutes\n";
+            }else if (time3<time1){
+                cout<<"The 2nd place runner was "<<run3;
+                cout<<" with a time of "<<time3<<" minutes\n";
+                cout<<"The 3rd place runner was "<<run1;
+                cout<<" with a time of "<<time1<<" minutes\n";}    
+        //If runner 3 is the first place finisher    
+            }else if(time3<time2 && time1>time3){
+            cout<<"The 1st place runner was "<<run3;
+            cout<<" with a time of "<<time3<<" minutes\n";
+            if (time2<time1){
+                cout<<"The 2nd place runner was "<<run2;
+                cout<<" with a time of "<<time2<<" minutes\n";
+                cout<<"The 3rd place runner was "<<run1;
+                cout<<" with a time of "<<time1<<" minutes\n";
+            }else if (time1<time2){
+                cout<<"The 2nd place runner was "<<run1;
+                cout<<" with a time of "<<time1<<" minutes\n";
+                cout<<"The 3rd place runner was "<<run2;
+                cout<<" with a time of "<<time2<<" minutes\n";} 
+            }
+        
+    return 0;
+}
+
