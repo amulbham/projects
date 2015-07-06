@@ -1,0 +1,57 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham
+ * Purpose: Determine the total cost of purchase
+ * regarding software sales
+ * Created on July 5, 2015, 9:09 PM
+ */
+
+#include <iostream>
+
+using namespace std;
+
+//Global Constants
+
+//Function Prototypes
+
+//User Libraries
+
+//Execution begins here!
+int main(int argc, char** argv) {
+    //Declare variables 
+    int uSold; //Units sold 
+    float tCost; //total cost of the purchase
+    int sware = 99; //cost of software at retail
+    
+    //Initialize the variables
+    cout<<"How many units were sold? \n";
+    cin>>uSold;
+        
+        
+    tCost= (sware*uSold); //Total cost of the purchase given there are no discounts
+    
+    //Output options to account for separate discounts
+    
+    if (uSold<10 && uSold>=0){//This accounts for no discount
+        cout<<"The total cost is $ "<<tCost<<endl;
+    }else if (uSold>=10 && uSold<=19){
+        cout<<"The total cost after a 20% discount is $";
+        cout<<tCost-(tCost*0.2)<<endl;
+    }else if (uSold>19 && uSold<=49){
+        cout<<"The total cost after a 30% discount is $";
+        cout<<tCost-(tCost*0.3)<<endl;
+    }else if (uSold>49 && uSold<=99){
+        cout<<"The total cost after a 40% discount is $";
+        cout<<tCost-(tCost*0.4)<<endl;
+    }else if (uSold>99){
+        cout<<"The total cost after a 50% discount is $";
+        cout<<tCost-(tCost*0.5)<<endl;
+    }else{//This ensures the number of units is greater than 0
+        cout<<"You inputed a negative amount of sales \n";
+        cout<<"That is impossible!";
+    }
+     
+    
+    return 0;
+}
+
