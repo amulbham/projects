@@ -1,0 +1,63 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham
+ * Purpose: To determine the price of an item in the future
+ * adjusting for the price of inflation
+ * Created on July 6, 2015, 11:11 AM
+ */
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+//Global constants
+
+//User libraries
+
+//Function Prototypes 
+
+
+//Execution begins here !
+
+int main(int argc, char** argv) {
+    
+    //Declare Variables
+    float cItem; //Original cost of the item 
+    int nYears; //number of years from now to account for
+    float rInfl; //Rate of inflation 
+    float pInfl; //Rate of inflation converted to decimal form 
+    float cItemiF; //cost of the item after inflation 
+    char sent; //sentinel value 
+do
+{    
+    do{
+    cout<<"Enter the number of years from now that the item \n";
+    cout<<"will be purchased\n";
+    cin>>nYears;
+    if (nYears>30){ //let the user know that too far in the future will be innacc.
+                cout<<"The price may be inaccurate, try to enter values\n";
+                cout<<"that represent the near future as\n";
+                cout<<"the inflation rate is constantly changing \n\n";}
+    }while (nYears>30); //repeat the years for a more realistic entry
+    
+    cout<<"\nEnter the current cost of an item\n";
+    cin>>cItem;
+    cout<<"\nAnd finally, enter the rate of inflation (%) \n";
+    cin>>rInfl; //inflation rate in percent form 
+    
+    for (int x=1; x<=nYears; x++){ 
+   
+    pInfl= rInfl / 100;  //convert the percent to decimal form 
+    cItemiF=(pInfl * cItem);  //add the inflation rate to the cost
+    cItem+=cItemiF ;  //change and add the new value, set = to cost of item
+    cout<<"\nThe cost of the item in "<<x<<" years will be \n";
+    cout<<fixed<<showpoint<<setprecision(2)<<cItem<<" $"; 
+    }
+    //ask the user if the would like to repeat program with do loop
+    cout<<"\n\nWould you like to calculate for another item? y/n \n";
+    cin>>sent;
+} while(sent=='y'|| sent =='Y');
+    return 0;
+}
+
