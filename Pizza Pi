@@ -1,0 +1,45 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham
+ * Purpose: Calculate the how many slices of pizza can be made
+ * given a user inputed diameter
+ * Created on July 5, 2015, 7:18 PM
+ */
+
+#include <iostream>
+#include <iomanip>
+
+
+using namespace std;
+
+
+//Global Constants
+float pi = 3.14159;
+
+//User Libraries
+
+//Function Prototypes
+
+//Execution begins here
+int main(int argc, char** argv) {
+    
+    //Declare Variables
+    float dia;//diameter
+    float area;//area of the pizza
+    float nslice; //# of slices
+
+    
+    //Initialize the variables
+    cout<<"Enter the diameter of the pizza in inches\n";
+    cin>>dia;
+   
+    area = pi*(dia/2.0); //formula for area of a circle
+    nslice = area/14.125; //determines the # of slices
+    
+    //Output the number of pizza that can be made
+    cout<<"With the given diameter of the pizza, you can make \n";
+    cout<<fixed<<setprecision(1)<<nslice<<" slices";
+//set it only for 1 decimal, precise but not overly as it is food. 
+    return 0;
+}
+
