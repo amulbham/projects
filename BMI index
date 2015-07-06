@@ -1,0 +1,52 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul
+ * Purpose: To Calculate the Body Mass Index
+ * of an individual 
+ * Created on July 5, 2015, 7:40 PM
+ */
+
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+
+using namespace std;
+
+//Global Constants
+
+//User Libraries
+
+//Function Prototypes
+
+//Execution begins here
+int main(int argc, char** argv) {
+    
+    //Declare Variables
+    int weight;
+    int height;
+    float BMI;
+    
+    //Initialize Variables
+    cout<<"Please enter your weight in pounds\n";
+    cin>>weight;
+    cout<<"Please enter your height in inches \n";
+    cin>>height;
+    
+    BMI = weight*(703/pow(height,2));
+    
+    //Output the results
+    cout<<"Your Body Mass Index is "<<fixed<<setprecision(1);
+    cout<<BMI<<"\n\n";
+    
+         //Provide different outputs based on BMI
+             if (BMI >= 18.5 && BMI<=25.0){
+                cout<<"You are at optimal weight\n";
+             }else if(BMI>25.0){
+                cout<<"You are overweight\n";
+             }else{
+                cout<<"You are underweight\n";
+                 }
+
+    return 0;
+}
+
