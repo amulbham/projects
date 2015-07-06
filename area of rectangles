@@ -1,0 +1,53 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham
+ * Purpose: To determine which rectangle has
+ * the greater area
+ * Created on July 5, 2015, 8:21 PM
+ */
+
+#include <iostream>
+
+using namespace std;
+
+//Global Constants
+
+//User Libraries
+
+//Function Prototypes
+
+//Execution Begins here!
+int main(int argc, char** argv) {
+
+    //Declare Variables :include width and length to calc. area
+    float aRect1;float wRect1; float lRect1;
+    float aRect2;float wRect2; float lRect2;
+    
+    //Initialize Variables
+    cout<<"Enter the length and width of first rectangle\n";
+    cin>>wRect1;
+    cin>>lRect1;
+    cout<<"Enter the length and width of the second rectangle \n";
+    cin>>wRect2;
+    cin>>lRect2;
+    
+        //Calculate areas of rectangles
+    aRect1=wRect1*lRect1;
+    aRect2=wRect2*lRect2;
+    
+    
+    //Output the results: provide different output based on the results
+    if (aRect1>aRect2){
+        cout<<"Rectangle 1("<<aRect1<<")has a greater area than Rectangle 2(";
+        cout<<aRect2<<")\n";
+    }else if (aRect1<aRect2){
+        cout<<"Rectangle 2("<<aRect2<<")has a greater area than Rectangle 1(";
+        cout<<aRect1<<")\n";
+    }
+    else //this accounts for if the rectangles are the same
+        cout<<"The two rectangles have the same area ("<<aRect1<<")\n";
+    
+    
+    return 0;
+}
+
