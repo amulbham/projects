@@ -1,0 +1,48 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham
+ * Purpose: To tell the user whether they are 
+ * following fire regulations based on room capacity
+ * Created on July 6, 2015, 8:10 PM
+ */
+
+//System Libraries
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+//Global Constants
+
+//User Libraries
+
+//Function Prototypes
+
+//Execution begins here!
+int main(int argc, char** argv) {
+    //Declare Variables, unsigned short as we are using small positive integers
+    unsigned short int maxR; //Maximum room capacity
+    unsigned short int numP; //people attending the meeting
+    char ans; //Sentinel value
+    
+    do{ //Loop incase user wants to attempt again 
+        cout<<"Enter the room capacity\n";
+        cin>>maxR;
+        cout<<"Enter the number of people who plan to attend the meeting\n";
+        cin>>numP;
+        //Initialize the Variables
+    if (numP<=maxR){
+        unsigned short int addP=maxR-numP; //additional people who can attend
+        cout<<"Your meeting is legal and passes all fire regulations\n";
+        cout<<"You can have an additional "<<addP<<" people attend\n";
+    }else{
+        unsigned short int negP=numP-maxR; //people who cannot go 
+        cout<<"The meeting cannot be held due to overcapacity!\n\n";
+        cout<<"You are "<<negP<<" people over the limit to meet fire regulations";
+    }
+    cout<<"\n\nWould you like to recalculate? y/n\n"; //Sentinel statement
+    cin>>ans;
+  }while(ans =='y'||ans =='Y');   
+    return 0;
+}
+
