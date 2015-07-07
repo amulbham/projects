@@ -1,0 +1,99 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham
+ * Purpose: To display the value of the users blackjack
+ * hand based on their input of cards.
+ * Created on July 6, 2015, 9:39 PM
+ */
+
+#include <iostream>
+#include <iomanip>
+
+
+using namespace std;
+
+//Global Constants
+
+//User Libraries
+
+//Function Prototypes
+
+//Execution begins here
+int main(int argc, char** argv) {
+    char aws; //sentinel value
+do{   
+    //Declare Variables
+    int numC; //number of cards
+    unsigned short int cardTot=0; //Total value of the cards
+    //Prompt the user 
+    cout<<"How many cards do you have?(2-5)\n";
+    cin>>numC;
+    cout<<"Enter king,jack,queen, ten and ace as \n";
+    cout<<"k, j, q, t, and a and the others as 2-9\n\n";
+    cout<<"Enter the value of your cards\n";
+    //Loop to place values on the cards, also account for the number of cards
+    for (int x=1;x<=numC;x++){
+        char cardV1; 
+        cin>>cardV1;
+       
+        switch(cardV1){ //accounts for the every possible card value
+            case '2':
+                cardTot+=2;
+                break;
+            case '3':
+                cardTot+=3;
+                break;   
+            case '4':
+                cardTot+=4;
+                break;    
+            case '5':
+                cardTot+=5;
+                break;
+            case '6':
+                cardTot+=6;
+                break;
+            case '7':
+                cardTot+=7;
+                break; 
+            case '8':
+                cardTot+=8;
+                break;
+            case '9':
+                cardTot+=9;
+                break;    
+            case 't':
+                cardTot+=10;
+                break; 
+            case 'q':
+                cardTot+=10;
+                break; 
+            case 'k':
+                cardTot+=10;
+                break; 
+            case 'j':
+                cardTot+=10;
+                break;
+            case 'a': //determines if the value of ace should be 1 or 11
+                if(cardTot>10){
+                    cardTot+=1; 
+                }else if (cardTot<=10){
+                    cardTot+=11;}
+        }
+        
+    }
+    //Output the results
+    if(cardTot<21){
+        cout<<"Your hand adds up to "<<cardTot;
+    }else if(cardTot==21){
+        cout<<"Congratulations you got blackjack!";
+    }else if(cardTot>21){
+        cout<<"Busted!";
+    }
+    cout<<"\n\nWould you like to calculate the value of";
+    cout<<"\na new hand? y/n \n";
+    cin>>aws;
+}while(aws == 'y' || aws == 'Y');
+
+    return 0;
+}
+
