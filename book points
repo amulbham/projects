@@ -1,0 +1,49 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham    
+ * Purpose: create a program that calculates a users book purchases
+ * and then displays the points awarded for said purchases
+ * Created on July 6, 2015, 4:34 PM
+ */
+
+
+//System Libraries
+#include <iostream>
+
+using namespace std;
+
+//Global Constants
+
+//User Libraries
+
+//Function Prototypes
+
+//Execution begins here!
+int main(int argc, char** argv) {
+//Declare Variables
+    unsigned short int nBooks; //number of books purchased by user
+    
+//Initialize Variables
+    cout<<"Enter the number of books purchased this month\n";
+    cin>>nBooks;
+    if (nBooks<4){ 
+ switch (nBooks) { //Provide a switch to account for the first 4 options
+     case 0 :
+         cout<<"You have earned 0 points this month\n";
+         break;
+     case 1 :
+         cout<<"You have earned 5 points this month\n";
+         break;
+     case 2 :
+         cout<<"You have earned 15 points this month\n";
+         break;
+     case 3 :
+         cout<<"You have earned 30 points this month\n";
+         break;
+ }
+    }else{ //Accounts for books purchases of 4 or more
+        cout<<"You have earned 60 points this month\n";
+ }
+    return 0;
+}
+
