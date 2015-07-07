@@ -1,0 +1,66 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham
+ * Purpose: To calculate the value of roots
+ * using the quadratic formula 
+ * Created on July 6, 2015, 8:50 PM
+ */
+
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+
+using namespace std;
+
+//Global Constants
+
+//User Libraries
+
+//Function Prototypes
+
+//Execution begins here
+int main(int argc, char** argv) {
+    //Declare Variable
+        float a,b,c;
+
+    //Initialize Variables
+    cout<<"Enter the value of a: ";
+    cin>>a;
+    cout<<"Enter the value of b: ";
+    cin>>b;
+    cout<<"Enter the value of c: ";
+    cin>>c;
+    
+    
+    float discrim= (pow(b,2) - 4*a*c);
+    float pos_root= (((-b) + sqrt(discrim))/(2*a));
+    float neg_root= (((-b) - sqrt(discrim))/(2*a));
+
+    if(discrim==0){
+     cout<<fixed<<showpoint<<setprecision(2);
+        cout<<"\nThe discriminant is "<<discrim;
+        cout<<"\n\nYou have one real root";
+        cout<<"\n\nThe roots of the equations are y = "<<endl;
+        cout<<pos_root<<" and "<<neg_root;
+        
+    }else if(discrim>0){
+     cout<<fixed<<showpoint<<setprecision(2);
+        cout<<"\nThe discriminant is "<<discrim;
+        cout<<"\n\nYou have two real roots";
+        cout<<"\n\nThe roots of the equations are y = "<<endl;
+        cout<<pos_root<<" and "<<neg_root;
+        
+    }else{
+        cout<<"\nThe discriminant is "<<discrim;
+        cout<<"\n\nYou have two complex roots";
+        cout<<"\n\nThe roots of the equations are y = "<<endl;
+        cout<<pos_root<<" i"<<" and "<<neg_root<<" i";
+        cout<<"\nThese are imaginary numbers";
+    }
+    
+    
+    
+    return 0;
+}
+
