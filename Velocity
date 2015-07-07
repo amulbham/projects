@@ -1,0 +1,45 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham
+ * Purpose: Calculate the Velocity over a user
+ * inputed temperature range
+ * Created on July 6, 2015, 7:47 PM
+ */
+
+//System Libraries
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+//Global Constants
+
+//User Libraries
+
+//Function Prototypes
+
+//Execution begins here!
+int main(int argc, char** argv) {
+    //Declare Variables
+    float velocity;
+    int minT; //minimum bound
+    int maxT; //maximum bound
+    
+    //Initialize the Variables by asking user to enter temperature bounds
+    cout<<"Enter the starting temperature\n";
+    cin>>minT;
+    cout<<"Enter the ending temperature\n";
+    cin>>maxT;
+    
+    for (int x=minT;x<=maxT;x++){ //Loop to account for user range
+        float velocity=331.3 + (0.61*x);//x++ accounts for 1 degree increments
+        
+        //Output the results in 1 degree increments
+        cout<<fixed<<showpoint<<setprecision(1);
+        cout<<"\nAt "<<x<<" degrees Celsius, the Velocity of Sound is\n";
+        cout<<velocity<<" m/s\n";
+    }
+
+    return 0;
+}
+
