@@ -1,0 +1,126 @@
+int main(int argc, char** argv) {
+    //Declare Variables
+     srand (time(NULL));
+     string trig; // Trigger to begin game;
+     string name; 
+     int card1,card2,card3,card4,card5;
+     int dcard1,dcard2,dcard3,dcard4,dcard5;
+     char newcard;
+     int cardTot=0;
+     int dCardt = 0;
+     int deck[53];
+     int y;
+     char answ;
+     int bal,bet;
+     int x;
+     int z = 2;
+   
+    name = displayGreeting(name); //Begin greeting, get user name
+    
+    cout<<"How much would you like to buy in "<<name<<" ?"<<endl;
+    cin>>bal;
+    x = bal; //set = to starting balance
+  do{   
+    cout<<"Press any key when you are ready to play "<<name<<endl;
+    cin>>trig;
+    cout<<"****************************************************************\n";
+    if (z<=2 || z>40){
+    for(int x=1;x <53;x++){
+      do{
+    (time(NULL));
+    y = (rand() % 52)+1;
+    deck[x] = y;
+      }while(y == 0 || deck[x]==deck[x-1]);}}
+    
+    cout<<"****************************************************************\n";
+    cout<<"How much would you like to bet?"<<endl;
+    cin>>bet;
+    bal -=bet;
+    cout<<"Okay sounds good, your remaining balance is $"<<bal<<endl;
+    cout<<"****************************************************************\n";
+    cout<<"Your first two cards are.... "<<endl; 
+    card1 = deck[z];z++;
+    cardTot = valueCards (cardTot,card1);
+    card2 = deck[z];z++;
+    cardTot = valueCards (cardTot,card2);
+    cout<<name<<" your hand equates to "<<cardTot<<endl<<endl;
+    cout<<"****************************************************************\n";
+    
+    cout<<"My first card is a.... "<<endl;
+    dcard1 = deck[z];z++;
+    dCardt = valueCards(dCardt,dcard1);
+    cout<<"My hand so far equates to "<<dCardt<<endl;
+    cout<<"****************************************************************\n";
+    cout<<"Would you like to \n"
+    "hit or stay? h/s\n";
+     cin>>newcard;
+     if (newcard =='h' || newcard == 'H' && cardTot<21){
+    card3 = deck[z];z++;
+    cardTot = valueCards (cardTot,card3);
+    cout<<cardTot<<" is your new card total"<<endl;
+        if(cardTot<21){
+        cout<<"Would you like to \n"
+                "hit or stay?\n";
+        cin>>newcard;
+    }
+     }
+    if(cardTot<21 && newcard=='h' || newcard =='H'){
+        card4 = deck[z] ;z++;
+        cardTot = valueCards (cardTot,card4);
+        cout<<cardTot<<" is your new card total"<<endl;
+        if (cardTot<21){
+        cout<<"Would you like to \n"
+                "hit or stay?\n";
+        cin>>newcard;}
+    }
+    cout<<"****************************************************************\n";
+    if(cardTot<21 && newcard=='h' || newcard =='H'){
+        card5 = deck[z];z++;
+        cardTot = valueCards (cardTot,card5); 
+        cout<<cardTot<<" is your new card total"<<endl;}   
+     if(cardTot==21){
+        cout<<"Congratulations you got blackjack! ☜(˚▽˚)☞"<<endl;
+    }if(cardTot>21){
+        cout<<"Busted! You lose! ¯|_(ツ)_/¯ "<<endl;
+    cout<<"****************************************************************\n";
+    }if (cardTot <=21){
+   if (dCardt<17 && cardTot<=21 ){
+   dcard2 = deck[z];z++;
+   cout<<"My next card is a ";dCardt = valueCards(dCardt,dcard2);
+   }if (dCardt<17 && cardTot<=21){
+   dcard3 = deck[z];z++;
+   cout<<"Followed by a ";dCardt = valueCards(dCardt,dcard3);
+   }if (dCardt<17 && cardTot<=21){
+   dcard4 = deck[z];z++;
+   cout<<"Followed by a ";dCardt = valueCards(dCardt,dcard4);}
+   if (dCardt<17 && cardTot<=21){
+   dcard5 = deck[z];z++;
+   cout<<"And finally a ";dCardt = valueCards(dCardt,dcard5);}  
+   cout<<"My Hand equates to "<<dCardt<<endl;  
+  cout<<"****************************************************************\n";
+   if (dCardt<cardTot || dCardt>21){
+   cout<<"Congratulations "<<name<<" you won the hand ☜(˚▽˚)☞ "<<endl;
+       bal +=bet *2;
+   }else if (dCardt>cardTot && dCardt<=21){
+       cout<<"Thank you for playing "<<name<< ", but you lose (◑‿◐)"<<endl;
+   }else if (dCardt == cardTot){
+       cout<<"Draw!"<<" I guess that means you technically aren't a loser..."<<name<<endl;
+       bal +=bet;
+   }}
+  cout<<"****************************************************************\n";
+    cout<<"Your remaining balance is $"<<bal<<endl; 
+    cout<<"Do you want to play another hand, or walk away now?"<<endl;
+    cout<<"y/n \n";
+    cin>>answ;
+    dCardt = 0;
+    cardTot = 0;
+   
+ }while(answ == 'y' || answ == 'Y');
+ if (bal>=x){
+ cout<<"****************************************************************\n";
+ cout<<"You winnings for the day are $"<<bal - x<<"\ngo buy yourself"
+         " a new computer "<<name<<endl;
+ }else {
+ cout<<"Looks like you lost $"<<x - bal<<" today, better luck next time "<<name<<endl;
+ }
+            return 0;}
