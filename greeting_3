@@ -1,0 +1,45 @@
+string displayGreeting(string name){
+    //Variables
+    char answ;
+    cout<<"                  BlackJack ☜(˚▽˚)☞"<<endl;
+    cout<<"****************************************************************\n";
+    cout<<"Welcome to the Casino Bham! \n My name is Amul (◕‿◕) and i will "
+            "be your dealer today!";
+    cout<<"What is your name? ";
+    cin>>name;
+    cout<<"Ah! nice to meet you "<<name<<", you have a lovely name";
+    cout<<"\nAnyways, Im going to assume you know how to play BlackJack"
+            " as you would be foolish to play against me without any "
+            "experience... "<<endl;
+    cout<<"Would you like the rules explained? y/n"<<endl;
+    cin>>answ;
+   
+    if (answ == 'y' || answ == 'Y'){
+        cout<<"Well this is awkward... \n anyways ill try to explain my best,\n"
+                "and do not expect me to go easy on you just because you are a "
+                "rookie... "<<endl;
+       cout<<"****************************************************************\n";
+        cout<<"Basically the point of the game is to get to 21 or as close as"
+                "possible without going over,\notherwise you lose"
+                "\n,in addition, if my card total is higher than yours"
+                " you also lose \n";
+       cout<<"****************************************************************\n";
+        cout<<"I will deal 2 cards from a regular deck of cards \n"
+                "depending on the total value of these cards, you must\n"
+                "decide if you want another card or stay where you are (hit) \n"
+                "Also, note that my job as a dealer is to always hit if my card\n"
+                "value is below 17 \n,if i bust (go over 21) then you automatically\n"
+                "win. So its your choice whether you want to pursue a higher card "
+                "value(at the risk of busting)\nor stay and wait for the dealer to bust\n"
+                "If we score a tie, then the hand ends in a draw \n";
+        cout<<"Also, Jack, Queens, King all have a value of 10\n"
+                "while the Ace has a value of either 1 or 11\n"
+                "All other cards represent their face value\n";
+      cout<<"****************************************************************\n";
+        cout<<"Got it? GOOD! Let me know when you are ready to play"<<endl;
+    }else {
+        cout<<"Thank gosh, I hate explaining rules...⊙﹏⊙\n";
+    }
+    cout<<"**********************************************************"<<endl;
+    return name; 
+}
