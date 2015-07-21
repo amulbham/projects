@@ -1,0 +1,118 @@
+int main(int argc, char** argv) {
+    //Declare Variables
+     srand (time(NULL));
+     string trig; // Trigger to begin game;
+     string name; 
+     int card1,card2,card3,card4,card5;
+     int dcard1,dcard2,dcard3,dcard4,dcard5;
+     char newcard;
+     int cardTot=0;
+     int dCardt = 0;
+     int deck[52];
+     int y;
+     char answ;
+     int bal,bet;
+     int x;
+   
+    name = displayGreeting(name); //Begin greeting, get user name
+    cout<<"How much would you like to buy in "<<name<<" ?"<<endl;
+    cin>>bal;
+    x = bal; //set = to starting balance
+  do{   
+    cout<<"Press any key when you are ready to play "<<name<<endl;
+    cin>>trig;
+
+  for(int x=1;x <54;x++){
+      do{
+ (time(NULL));
+ y = (rand() % 52)+1;
+ }while(y == 0);deck[x] = y;}
+    
+    cout<<"How much would you like to bet?"<<endl;
+    cin>>bet;
+    bal -=bet;
+    cout<<"Okay sounds good, your remaining balance is $"<<bal<<endl;
+ 
+    card1 = deck[2];
+    cardTot = valueCards (cardTot,card1);
+    card2 = deck[3];
+    cardTot = valueCards (cardTot,card2);
+    cout<<name<<" your hand equates to "<<cardTot<<endl<<endl;
+    cout<<"****************************************************************\n";
+    
+   dcard1 = deck[4];
+   dCardt = valueCards(dCardt,dcard1);
+   cout<<"My hand so far equates to "<<dCardt<<endl;
+   cout<<"****************************************************************\n";
+   cout<<"Would you like to \n"
+    "hit or stay? h/s\n";
+     cin>>newcard;
+     if (newcard =='h' || newcard == 'H'){
+    card3 = deck[5];
+    cardTot = valueCards (cardTot,card3);
+    cout<<cardTot<<" is your new card total"<<endl;
+        if(cardTot<21){
+        cout<<"Would you like to \n"
+                "hit or stay?\n";
+        cin>>newcard;
+    }
+     }
+    if(cardTot<21 && newcard=='h' || newcard =='H'){
+        card4 = deck[6] ;
+        cardTot = valueCards (cardTot,card4);
+        cout<<cardTot<<" is your new card total"<<endl;
+        if (cardTot<21){
+        cout<<"Would you like to \n"
+                "hit or stay?\n";
+        cin>>newcard;}
+    }
+    if(cardTot<21 && newcard=='h' || newcard =='H'){
+        card5 = deck[7] ;
+        cardTot = valueCards (cardTot,card5); 
+        cout<<cardTot<<" is your new card total"<<endl;}   
+     if(cardTot==21){
+        cout<<"Congratulations you got blackjack!"<<endl;
+    }if(cardTot>21){
+        cout<<"Busted! You lose! ¯|_(ツ)_/¯ "<<endl;
+    cout<<"****************************************************************\n";
+    }if (cardTot <=21){
+   if (dCardt<17 && cardTot<=21 ){
+   dcard2 = deck[8];
+   cout<<"My next card is a ";dCardt = valueCards(dCardt,dcard2);
+   }if (dCardt<17 && cardTot<=21){
+   dcard3 = deck[9];
+   cout<<"Followed by a ";dCardt = valueCards(dCardt,dcard3);
+   }if (dCardt<17 && cardTot<=21){
+   dcard4 = deck[10];
+   cout<<"And finally a ";dCardt = valueCards(dCardt,dcard4);}
+   if (dCardt<17 && cardTot<=21){
+   dcard5 = deck[11];
+   dCardt = valueCards(dCardt,dcard5);}  
+   cout<<"My Hand equates to "<<dCardt<<endl;  
+  cout<<"****************************************************************\n";
+   if (dCardt<cardTot || dCardt>21){
+   cout<<"Congratulations "<<name<<" you won the hand"<<endl;
+       bal +=bet *2;
+   }else if (dCardt>cardTot && dCardt<=21){
+       cout<<"Thank you for playing "<<name<< ", but you lose (◑‿◐)"<<endl;
+   }else if (dCardt == cardTot){
+       cout<<"Draw!"<<" I guess that means you technically aren't a loser..."<<name<<endl;
+       bal +=bet;
+   }}
+  cout<<"****************************************************************\n";
+    cout<<"Your remaining balance is $"<<bal<<endl; 
+    cout<<"Do you want to play another hand, or walk away now?"<<endl;
+    cout<<"y/n \n";
+    cin>>answ;
+    dCardt = 0;
+    cardTot = 0;
+   
+ }while(answ == 'y' || answ == 'Y');
+ if (bal>=x){
+ cout<<"****************************************************************\n";
+ cout<<"You winnings for the day are $"<<bal - x<<"\ngo buy yourself"
+         " a new computer"<<name<<endl;
+ }else {
+ cout<<"Looks like you lost $"<<x - bal<<" today, better luck next time "<<name<<endl;
+ }
+            return 0;}
