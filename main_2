@@ -1,0 +1,232 @@
+/* 
+ * File:   main.cpp
+ * Author: Amul Bham
+ * Purpose: To play Blackjack against 
+ * A.I. 
+ * Created on July 15, 2015, 3:35 PM
+ */
+
+#include <cstdlib>
+#include <iostream>
+#include <time.h>
+
+using namespace std;
+
+//Global Constants
+
+//User Libraries
+
+//Function Prototypes
+string displayGreeting(string);
+void setupDeck();
+int dealCards(int);
+
+int CompareCards();
+int valueCards(int ,int);
+
+
+
+//Execution begins here
+int main(int argc, char** argv) {
+    //Declare Variables
+     srand (time(NULL));
+     string trig; // Trigger to begin game;
+     string name; 
+     unsigned short int plyV[5], dealV[5];
+     int card1,card2,card3,card4,card5;
+     int dcard1,dcard2,dcard3,dcard4,dcard5;
+     int y;
+     string face[4]={"hearts","diamonds","spades","cloves"};
+     char newcard;
+     int cardTot=0;
+     int dCardt = 0;
+     int deck[52];
+   
+    name = displayGreeting(name); //Begin greeting, get user name
+do{    
+    cout<<"Press any key when you are ready to play "<<name<<endl;
+    cin>>trig; }while(trig =="no" || trig =="No");
+
+  for(int x=2;x <54;x++){
+ 
+  deck[x] = (rand() % 14)+1;
+  (time(NULL));
+        for (int i = 0; i<4; i++){
+             y = rand()%3 +1;
+    }
+
+  
+ 
+  }
+   
+    card1 = deck[2];
+    cardTot = valueCards (cardTot,card1); cout<<"of "<<face[y]<<endl;
+    card2 = deck[3];
+    cardTot = valueCards (cardTot,card2);cout<<"of "<<face[y % 2]<<endl;
+    cout<<name<<" your hand equates to "<<cardTot<<endl<<endl;
+   
+    
+    dcard1 = deck[4];
+   dCardt = valueCards(dCardt,dcard1);cout<<"of "<<face[y-1]
+            <<endl<<endl;
+   cout<<"My hand so far equates to "<<dCardt<<endl;
+    
+    
+    
+    if(cardTot<21){
+        cout<<"Would you like to \n"
+                "hit or stay?\n";
+        cin>>newcard;
+        
+        if (newcard == 'hit' || newcard=='Hit'){
+        card3 = deck[3] ;
+        cardTot = valueCards (cardTot,card2);
+             cout<<"Your hand adds up to "<<cardTot<<" Would you like to \n"
+                "hit or stay?\n";
+                        cin>>newcard;
+        
+        }
+    }if(cardTot==21){
+        cout<<"Congratulations you got blackjack!";
+    }if(cardTot>21){
+        cout<<"Busted!";
+    }
+    
+    
+    
+    
+   
+    cout<<"\n\nWould you like to calculate the value of";
+    cout<<"\na new hand? y/n \n";
+    return 0;
+}
+
+string displayGreeting(string name){
+    //Variables
+    char answ;
+    cout<<"                  BlackJack ☜(˚▽˚)☞"<<endl;
+    cout<<"****************************************************************\n";
+    cout<<"Welcome to the Casino Bham! \n My name is Amul (◕‿◕) and i will "
+            "be your dealer today!";
+    cout<<"What is your name? ";
+    cin>>name;
+    cout<<"Ah! nice to meet you "<<name<<", you have a lovely name";
+    cout<<"\nAnyways, Im going to assume you know how to play BlackJack"
+            " as you would be foolish to play against me without any "
+            "experience... "<<endl;
+    cout<<"Would you like the rules explained? y/n"<<endl;
+    cin>>answ;
+   
+    if (answ == 'y' || answ == 'Y'){
+        cout<<"Well this is awkward... \n anyways ill try to explain my best,\n"
+                "and do not expect me to go easy on you just because you are a "
+                "rookie... "<<endl;
+        cout<<"Basically the point of the game is to get to 21 or as close as"
+                "possible without going over,\notherwise you lose"
+                "\n,in addition, if my card total is higher than yours"
+                " you also lose \n";
+        cout<<"I will deal 2 cards from a regular deck of cards \n"
+                "depending on the total value of these cards, you must\n"
+                "decide if you want another card or stay where you are (hit) \n"
+                "Also, note that my job as a dealer is to always hit if my card\n"
+                "value is below 17 \n,if i bust (go over 21) then you automatically\n"
+                "win. So its your choice whether you want to pursue a higher card "
+                "value(at the risk of busting)\nor stay and wait for the dealer to bust\n"
+                "If we score a tie, then the hand ends in a draw \n";
+        cout<<"Also, Jack, Queens, King all have a value of 10\n"
+                "while the Ace has a value of either 1 or 11\n"
+                "All other cards represent their face value\n";
+        cout<<"Got it? GOOD! Let me know when you are ready to play"<<endl;
+    }else {
+        cout<<"Thank gosh, I hate explaining rules...⊙﹏⊙\n";
+    }
+    cout<<"**********************************************************"<<endl;
+    return name; 
+}
+
+
+
+int dealCards(int ){
+  
+}
+
+int valueCards(int cardTot,int card){
+        srand(time(NULL));
+        int cardtot=0;
+        string faceValue;
+
+        
+        switch(card){ //accounts for the every possible card value
+            case 2:
+                cardTot+=2;
+                faceValue="two";
+                break;
+            case 3:
+                cardTot+=3;
+                faceValue = "three";
+                
+                break;   
+            case 4:
+                cardTot+=4;
+                faceValue = "four";
+                
+                break;    
+            case 5:
+                cardTot+=5;
+                faceValue = "five";
+                
+                break;
+            case 6:
+                cardTot+=6;
+                faceValue = "six";
+
+                break;
+            case 7:
+                cardTot+=7;
+                  faceValue = "seven";
+
+                break; 
+            case 8:
+                cardTot+=8;
+                faceValue = "eight";
+
+                break;
+            case 9:
+                cardTot+=9;
+                 faceValue = "nine";
+
+                break;    
+            case 10:
+                cardTot+=10;
+                 faceValue = "ten";
+
+                break; 
+            case 11:
+                cardTot+=10;
+                 faceValue = "jack";
+
+                break; 
+            case 12:
+                cardTot+=10;
+                faceValue = "queen";
+
+                break; 
+            case 13:
+                cardTot+=10;
+                 faceValue = "king";
+
+                break;
+            case 14:
+                faceValue = "ace";
+                if(cardTot>10){
+                    cardTot+=1; 
+                }else if (cardTot<=10){
+                    cardTot+=11;}
+        
+    }
+        cout<<faceValue<<endl;
+        return cardTot;
+}
+
+
+
