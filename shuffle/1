@@ -1,0 +1,14 @@
+
+void setupDeck(){
+        srand(time(NULL));
+        
+        int deck[52];
+        int deckC;
+        int count;
+        int shuffle;
+	for(int x = 0; x < 52; x++){
+		deck[x] = NULL % 53;
+	}
+        count = 0;
+	shuffle = 0;
+}
