@@ -1,0 +1,10 @@
+ //begin by shuffling/creating a deck of cards, when card 41 is reached,
+    //Initialize the deck with values 2-54.
+    if (z<=2 || z>40){
+        for(int x=0;x <53;x++){
+        deck[x]= x+2;
+        }
+        //Shuffle the deck for all values, using a random number
+        //to determine how its shuffled. 
+        random_shuffle(&deck[0], &deck[52],genRand);
+    } 
