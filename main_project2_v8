@@ -25,6 +25,7 @@ void valueCards(int& ,int);       //function add card values + suit
 int genRand (int i) { return rand()%i;} //function to generate a random number
 void getShuffle(int deck[],int cards); //creates deck and shuffles cards
 void getUser(string& name,int& bal); //determines user, initiates greeting
+void hitORstay(int& pcard, int& pCardt,int deck[],int& z);//handles logic for hitting/staying
 
 //Execution begins here
 int main(int argc, char** argv) {
@@ -96,25 +97,8 @@ int main(int argc, char** argv) {
     /*Player then must decide to hit or stay, loop continues until
      player busts, hits a 21, or decides to stay */    
     if (win != 1){ //only runs if player has not already hit a 21    
-        int b =0;      //sentinel value to break out of player card loop
-        do{
-            char nxtC;  //variable used to determine if user wants to hit or stay
-           
-            cout<<"Would you like to "
-            "hit or stay? h/s"<<endl;
-            cin>>nxtC;
-            
-            if (nxtC == 'h' || nxtC == 'H'){
-            pcard = deck[z];z++;
-            valueCards (pCardt,pcard);
-            cout<<pCardt<<" is your new card total"<<endl;
-            cout<<"**********************************************************\n";
-           
-            }if (pCardt>21 || pCardt == 21 || nxtC=='s' || nxtC=='S'){ 
-                b = 1;
-      cout<<"****************************************************************\n";
-            }
-        }while( b != 1);}
+        hitORstay(pcard,pCardt,deck,z);
+    }
      
     /*At this point, the program determines if the user has busted or reached
     blackjack, if user busts, dealer hand is skipped as the user has lost,
@@ -158,7 +142,6 @@ int main(int argc, char** argv) {
     if they would like to play a new hand*/
     cout<<"****************************************************************\n";
     cout<<"Your remaining balance is $"<<bal<<endl; 
-    
     
     cout<<"****************************************************************\n";
     cout<<"Do you want to play another hand, or walk away now?"<<endl;
@@ -328,7 +311,40 @@ void getShuffle(int deck[],int cards){
      to determine how its shuffled*/ 
         random_shuffle(&deck[0], &deck[52],genRand);
 }
+/****************************************************************************
+                          hitORstay  
+ ***************************************************************************
+ Purpose : To determine if the user would like to hit or stay based on their
+ * current card value, if hit, loop until user busts, hits 21, or decides to 
+ * stay
+ 
+ Input : The card drawn by player, the player card total from previous two cards,
+ * the deck, and the card # of the deck. 
+ 
+ Return --> void
+ ******************************************************************************/
+void hitORstay(int &pcard,int &pCardt,int deck[],int &z){
+int b =0;      //sentinel value to break out of player card loop
+        do{
+            char nxtC;  //variable used to determine if user wants to hit or stay
+           
+            cout<<"Would you like to "
+            "hit or stay? h/s"<<endl;
+            cin>>nxtC;
+            
+            if (nxtC == 'h' || nxtC == 'H'){
+            pcard = deck[z];z++;
+            valueCards (pCardt,pcard);
+            cout<<pCardt<<" is your new card total"<<endl;
+            cout<<"**********************************************************\n";
+           
+            }if (pCardt>21 || pCardt == 21 || nxtC=='s' || nxtC=='S'){ 
+                b = 1;
+      cout<<"****************************************************************\n";
+            }
+        }while( b != 1);
 
+}
 
 /****************************************************************************
                           Get ValueCards   
