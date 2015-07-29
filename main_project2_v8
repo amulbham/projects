@@ -21,7 +21,7 @@ using namespace std;
 
 //Function Prototypes
 string displayGreeting(string); //function for greeting player
-int valueCards(int ,int);       //function add card values + suit
+void valueCards(int& ,int);       //function add card values + suit
 int genRand (int i) { return rand()%i;} //function to generate a random number
 void getShuffle(int deck[],int cards); //creates deck and shuffles cards
 void getUser(string& name,int& bal); //determines user, initiates greeting
@@ -73,7 +73,7 @@ int main(int argc, char** argv) {
     cout<<"Your first two cards are.... "<<endl;  
     for(int i = 0;i<2;i++){
         pcard = deck[z];z++; //z incremented after ever card draw for next card
-        pCardt = valueCards (pCardt,pcard);
+        valueCards (pCardt,pcard);
     }  
     cout<<name<<" your hand equates to "<<pCardt<<endl<<endl; //first two card total
     cout<<"****************************************************************\n";
@@ -89,7 +89,7 @@ int main(int argc, char** argv) {
     //Then the dealer draws their first card value
     cout<<"My first card is a.... "<<endl;
     dcard = deck[z];z++;
-    dCardt = valueCards(dCardt,dcard);
+    valueCards(dCardt,dcard);
     cout<<"My hand so far equates to "<<dCardt<<endl; //dealer first card total
     cout<<"****************************************************************\n";
     
@@ -106,7 +106,7 @@ int main(int argc, char** argv) {
             
             if (nxtC == 'h' || nxtC == 'H'){
             pcard = deck[z];z++;
-            pCardt = valueCards (pCardt,pcard);
+            valueCards (pCardt,pcard);
             cout<<pCardt<<" is your new card total"<<endl;
             cout<<"**********************************************************\n";
            
@@ -132,7 +132,7 @@ int main(int argc, char** argv) {
         cout<<"And now, the rest of my hand..."<<endl;
         do{ //Loop dealer hand till card total at 17 or higher
           dcard = deck[z];z++;
-          dCardt = valueCards(dCardt,dcard);
+          valueCards(dCardt,dcard);
         }while(dCardt <17);
         
    cout<<"My Hand equates to "<<dCardt<<endl;  //dealer card value total
@@ -342,7 +342,7 @@ void getShuffle(int deck[],int cards){
  Return --> card total to the main program for further calculation
  *******************************************************************************/
 
-int valueCards(int cardTot,int card){       
+ void valueCards(int &cardTot,int card){       
         string faceValue; //face value of card
         string face;      //suit of the card
        
@@ -423,7 +423,5 @@ int valueCards(int cardTot,int card){
         //Output the face value and the suit of the card
         cout<<faceValue<<" of "<<face<<endl;
         
-        //Return the card total value so value remains outside of function
-        return cardTot;
 }
 
