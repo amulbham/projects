@@ -1,0 +1,20 @@
+        do{
+            int b =0;      //sentinel value to break out of player card loop
+            char nxtC;  //variable used to determine if user wants to hit or stay
+           
+            cout<<"Would you like to"
+            "hit or stay? h/s"<<endl;
+            cin>>nxtC;
+            
+            if (nxtC == 'h' || nxtC == 'H'){
+            pcard = deck[z];z++;
+            pCardt = valueCards (pCardt,pcard);
+            cout<<pCardt<<" is your new card total"<<endl;
+            cout<<"**********************************************************\n";
+           
+            }if (pCardt>21 || pCardt == 21 || nxtC=='s' || nxtC=='S'){ 
+                b = 1;
+      cout<<"****************************************************************\n";
+            }
+       }while( b != 1);
+     
