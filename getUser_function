@@ -1,0 +1,35 @@
+void getUser(string &name, int &bal){
+//determine if the player is continuing or is a new player
+    char c;
+    cout<<"Would you like to continue(c) or start a new game(n)? c/n"<<endl;
+    cin>>c;
+    /*if continuing, read file for name and balance*/
+    if (c == 'c' || c=='C'){
+         ifstream name_file;
+         name_file.open("name.txt");
+         name_file >> name;
+         name_file.close();
+         ifstream balance;
+         balance.open("balance.txt");
+         balance >>bal;
+         cout<<"Your current balance is $"<<bal<<", would"
+                 " you like to buy in more? y/n"<<endl;
+         char x; cin>>x;
+         if (x == 'y' || x == 'Y'){
+             cout<<"Enter how much more you like to buy in "<<name<<endl;
+         int x;  cin>>x;
+         bal +=x;}
+    /*if the user is new, call the greeting function and input the name
+     to the file*/     
+    }else{
+    //Begin greeting, get user name 
+    name = displayGreeting(name); 
+    ofstream name_file;
+    name_file<<name;
+    name_file.close();
+    cout<<"****************************************************************\n";
+    //Determine how much the player wants to buy into game
+    cout<<"How much would you like to buy in "<<name<<" ?"<<endl;
+    cin>>bal;
+    }
+}
