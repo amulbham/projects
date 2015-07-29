@@ -1,0 +1,6 @@
+ }if (pCardt <=21){
+        cout<<"And now, the rest of my hand..."<<endl;
+        do{ //Loop dealer hand till card total at 17 or higher
+          dcard = deck[z];z++;
+          dCardt = valueCards(dCardt,dcard);
+        }while(dCardt <17);
