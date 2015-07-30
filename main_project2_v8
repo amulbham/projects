@@ -161,7 +161,7 @@ int main(int argc, char** argv) {
  if (bal>=y){
  cout<<"****************************************************************\n";
  cout<<"You winnings for the day are $"<<bal - y<<"\ngo buy yourself"
-         "something nice "<<name<<endl; 
+         " something nice "<<name<<endl; 
  }else {
  cout<<"Looks like you lost $"<<y - bal<<" today, better luck next time "<<name<<endl;
  } 
